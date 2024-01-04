@@ -1,0 +1,16 @@
+<ion-header class="ion-border">
+  <img src="/assets/img/logo-registrApp-sinbg.png" alt="Logo App">
+</ion-header>
+
+<ion-content class="ion-padding">
+    <ion-item class="ion-margin-top ion-margin-bottom">
+      <ion-input label="Usuario" labelPlacement="stacked" type="email" [(ngModel)]="email" required>
+        <ion-icon name="person-outline" slot="start" aria-hidden="true"></ion-icon>
+      </ion-input>
+    </ion-item>
+
+    <ion-button [disabled]="validaCampo()" class="mt-5 btn-login" expand="full">Recuperar</ion-button>
+
+    <a class="mt-50" [routerLink]="['/login']" routerLinkActive="router-link-active"><ion-icon slot="start" name="arrow-undo-circle-outline"></ion-icon> Volver al Login</a>
+
+</ion-content>

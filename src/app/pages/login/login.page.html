@@ -1,0 +1,29 @@
+<ion-header class="ion-border">
+    <img src="/assets/img/logo-registrApp-sinbg.png" alt="Logo App">
+</ion-header>
+<ion-content class="ion-padding">
+  <div class="center-container">
+    <ion-item class="ion-margin-top ion-margin-bottom">
+      <ion-input label="Usuario" labelPlacement="stacked" type="email" [(ngModel)]="email" required>
+        <ion-icon name="person-outline"  slot="start" aria-hidden="true"></ion-icon>
+      </ion-input>
+    </ion-item>
+
+    <ion-item class="ion-margin-top ion-margin-bottom">
+      <ion-input label="Contraseña" labelPlacement="stacked" type="{{ showPassword ? 'text' : 'password' }}" [(ngModel)]="password" required>
+        <ion-icon slot="start" name="lock-closed" aria-hidden="true"></ion-icon>
+       
+      </ion-input>
+      <ion-button fill="clear" slot="end" aria-label="Show/hide" (click)="revela()">
+        <ion-icon slot="icon-only" name="{{ showPassword ? 'eye-off' : 'eye' }}"   aria-hidden="true"></ion-icon>
+      </ion-button>
+    </ion-item>
+
+    <ion-button  [disabled]="validaCampo()" class="mt-50 btn-login" expand="full">Ingresar</ion-button>
+
+    <a class="mt-50" [routerLink]="['/recuperar']" routerLinkActive="router-link-active">Olvidé mi contraseña <ion-icon slot="end" name="arrow-redo-circle-outline"></ion-icon></a>
+
+    <img src="./assets/img/logo_duoc-01.jpg" alt="Logo acreditacion">
+
+  </div>
+</ion-content>

@@ -1,0 +1,44 @@
+ion-header {
+    height: 220px;
+    background: rgb(3, 3, 90);
+}
+
+.btn-login {
+    --background: rgb(216, 146, 17);
+    --background-hover: #9ce0be;
+    --background-activated: #88f4be;
+    --background-focused: #88f4be;
+
+    --color: rgb(231, 231, 231);
+    --box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25);
+
+    --ripple-color: deeppink;
+
+    --padding-top: 12px;
+    --padding-bottom: 12px;
+}
+
+ion-content a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.mt-50 {
+    margin-top: 50px;
+}
+
+.mt-100 {
+    margin-top: 100px;
+}
+
+ion-header img{
+    display: block;
+    margin: 0 auto;
+    height: auto;
+    width: 80%;
+    margin-top: 60px;
+  
+  }
