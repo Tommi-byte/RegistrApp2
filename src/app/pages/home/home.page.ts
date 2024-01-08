@@ -42,13 +42,14 @@ export class HomePage   {
     .create()
     .duration(2000)
     .iterations(Infinity)
-    .addAnimation([ cardD]);
+    .addAnimation([cardD]);
 
     this.animation.play();
   }
 
 
   cerrarSesion() {
+    this.usuario = "";
     this.presentAlert("Cerrar Sesión", "¿Estas seguro?");
   }
 

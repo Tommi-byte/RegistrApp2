@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 
 @Component({
@@ -11,7 +12,7 @@ export class RecuperarPage implements OnInit {
   public usuario : string;
   public cargando: boolean;
 
-  constructor(public alertController: AlertController) {
+  constructor(public alertController: AlertController, private router : Router) {
 
     this.usuario = "";
     this.cargando = false;
@@ -35,6 +36,7 @@ export class RecuperarPage implements OnInit {
     setTimeout(() => {
       this.cargando = false;
       this.presentAlert("Correo Enviado", "Se le ha enviado un correo con las instrucciones para recuperar su contraseña");
+      this.router.navigate(["/login"]);
     }, 3000);
   }
 
