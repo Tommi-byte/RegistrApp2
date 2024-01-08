@@ -3,14 +3,19 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-    <ion-item class="ion-margin-top ion-margin-bottom">
-      <ion-input label="Usuario" labelPlacement="stacked" type="email" [(ngModel)]="email" required>
-        <ion-icon name="person-outline" slot="start" aria-hidden="true"></ion-icon>
-      </ion-input>
-    </ion-item>
+  <ion-item class="ion-margin-top ion-margin-bottom">
+    <ion-input label="Usuario" labelPlacement="stacked" type="text" [(ngModel)]="usuario" required>
+      <ion-icon name="person-outline" slot="start" aria-hidden="true"></ion-icon>
+    </ion-input>
+  </ion-item>
 
-    <ion-button [disabled]="validaCampo()" class="mt-5 btn-login" expand="full">Recuperar</ion-button>
+  <ion-button [disabled]="validaCampo()" (click)="recuperar()" class="mt-5 btn-login" expand="full">Recuperar</ion-button>
 
-    <a class="mt-50" [routerLink]="['/login']" routerLinkActive="router-link-active"><ion-icon slot="start" name="arrow-undo-circle-outline"></ion-icon> Volver al Login</a>
+  <div class="spinner-container">
+    <ion-spinner *ngIf="cargando" name="lines-small"></ion-spinner>
+  </div>
+
+  <a class="mt-50" [routerLink]="['/login']" routerLinkActive="router-link-active"><ion-icon slot="start"
+      name="arrow-undo-circle-outline"></ion-icon> Volver al Login</a>
 
 </ion-content>

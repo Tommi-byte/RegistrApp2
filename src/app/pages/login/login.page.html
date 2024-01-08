@@ -4,7 +4,7 @@
 <ion-content class="ion-padding">
   <div class="center-container">
     <ion-item class="ion-margin-top ion-margin-bottom">
-      <ion-input label="Usuario" labelPlacement="stacked" type="email" [(ngModel)]="email" required>
+      <ion-input label="Usuario" labelPlacement="stacked" type="text" [(ngModel)]="usuario" required>
         <ion-icon name="person-outline"  slot="start" aria-hidden="true"></ion-icon>
       </ion-input>
     </ion-item>
@@ -19,7 +19,11 @@
       </ion-button>
     </ion-item>
 
-    <ion-button  [disabled]="validaCampo()" class="mt-50 btn-login" expand="full">Ingresar</ion-button>
+    <ion-button  [disabled]="validaCampo()" (click)="iniciarSesion()"  class="mt-50 btn-login" expand="full">Ingresar</ion-button>
+
+    <div class="spinner-container">
+      <ion-spinner *ngIf="cargando" name="lines-small"></ion-spinner>
+    </div>
 
     <a class="mt-50" [routerLink]="['/recuperar']" routerLinkActive="router-link-active">Olvidé mi contraseña <ion-icon slot="end" name="arrow-redo-circle-outline"></ion-icon></a>
 

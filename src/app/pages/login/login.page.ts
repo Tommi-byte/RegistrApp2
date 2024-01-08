@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,14 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPage implements OnInit {
 
-  public email : string;
+  public usuario : string;
   public password : string;
   public showPassword : boolean;
+  public cargando : boolean;
 
-  constructor() { 
-    this.email = '';
+  constructor(public router:Router) { 
+    this.usuario = '';
     this.password = '';
     this.showPassword = false;
+    this.cargando = false;
   }
 
   ngOnInit() {
@@ -26,7 +29,26 @@ export class LoginPage implements OnInit {
   }
 
   validaCampo() : boolean {
-    return !(this.email && this.password);
+
+    if(this.cargando){
+      return true;
+    }
+
+    return !(this.usuario && this.password);
+  }
+
+  iniciarSesion(){
+    this.cargando = true;
+    setTimeout(() => {
+      this.cargando = false;
+      let navigationextras: NavigationExtras={
+        state:{
+          usuario: this.usuario //al state le asigno el modelo con clave y valor
+        }
+      }
+      this.router.navigate(['/home'],navigationextras);
+      
+    }, 3000);
   }
   
 

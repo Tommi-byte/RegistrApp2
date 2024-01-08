@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-recuperar',
@@ -7,18 +8,43 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecuperarPage implements OnInit {
 
-  public email : string;
+  public usuario : string;
+  public cargando: boolean;
 
-  constructor() {
+  constructor(public alertController: AlertController) {
 
-    this.email = "";
+    this.usuario = "";
+    this.cargando = false;
   }
 
   ngOnInit() {
   }
 
   validaCampo() : boolean {
-    return !(this.email );
+
+    if(this.cargando){
+      return true;
+    }
+
+    return !(this.usuario );
+  }
+
+  recuperar(){
+    this.cargando = true;
+    this.usuario = '';
+    setTimeout(() => {
+      this.cargando = false;
+      this.presentAlert("Correo Enviado", "Se le ha enviado un correo con las instrucciones para recuperar su contraseña");
+    }, 3000);
+  }
+
+  async presentAlert(titulo:string,message:string) {
+    const alert = await this.alertController.create({
+      header: titulo,      
+      message: message,
+      buttons: ['OK'],
+    });
+    await alert.present();
   }
 
 }
